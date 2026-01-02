@@ -11,6 +11,8 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { FAQ } from './pages/FAQ';
 import { Wishlist } from './pages/Wishlist';
+import { Login } from './pages/Login';
+import { ProductPage } from './pages/Product';
 
 function App() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -25,10 +27,12 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/shop/:category" element={<Shop />} />
+                <Route path="/product/:id" element={<ProductPage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/wishlist" element={<Wishlist />} />
+                <Route path="/login" element={<Login />} />
               </Route>
             </Routes>
 
