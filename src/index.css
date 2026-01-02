@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================
+   BRAND COLOR PALETTE (STRICT)
+   ===================================
+   
+   Primary (60%): Deep Trust Blue #1F3D4E
+   Secondary (30%): Leather Brown #8A5A3B
+   CTA (10%): Olive Green #2F7D4A
+   Background: Soft Off-White #F6F6F4
+   Text: Charcoal Gray #333333
+   
+   === DO NOT ADD ANY OTHER COLORS ===
+   =================================== */
+
+:root {
+  /* Brand Colors - STRICT 5-COLOR PALETTE */
+  --brand-primary: #1F3D4E;
+  --brand-secondary: #8A5A3B;
+  --brand-cta: #2F7D4A;
+  --brand-bg: #F6F6F4;
+  --brand-text: #333333;
+  
+  /* Typography */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  
+  /* Text Rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  * {
+    @apply border-brand-text border-opacity-10;
+  }
+  
+  body {
+    @apply bg-brand-bg text-brand-text;
+    margin: 0;
+    min-height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-brand-primary font-semibold;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+  
+  h6 {
+    @apply text-base md:text-lg;
+  }
+  
+  a {
+    @apply text-brand-secondary hover:text-brand-primary transition-colors duration-200;
+    text-decoration: none;
+  }
+  
+  button {
+    @apply cursor-pointer transition-all duration-200;
+  }
+  
+  input, textarea, select {
+    @apply bg-white border-brand-text border-opacity-20 text-brand-text;
+  }
+  
+  input:focus, textarea:focus, select:focus {
+    @apply outline-none ring-2 ring-brand-secondary ring-opacity-30 border-brand-secondary;
+  }
+}
+
+@layer components {
+  /* Product Card Hover Effect */
+  .product-card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+  
+  .product-card-hover img {
+    @apply transition-transform duration-300;
+  }
+  
+  .product-card-hover:hover img {
+    @apply scale-105;
+  }
+  
+  /* Button Glow Effect for CTA */
+  .btn-cta-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .btn-cta-glow::before {
+    content: '';
+    @apply absolute inset-0 bg-white/10 translate-y-full transition-transform duration-300;
+  }
+  
+  .btn-cta-glow:hover::before {
+    @apply translate-y-0;
+  }
+  
+  /* Smooth Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Section Spacing */
+  .section-spacing {
+    @apply py-12 md:py-16 lg:py-24;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-brand-bg;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-brand-secondary bg-opacity-30 rounded-full;
+  }
+  
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-secondary bg-opacity-50;
+  }
+  
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Animation Utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
